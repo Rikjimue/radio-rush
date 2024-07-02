@@ -8,11 +8,12 @@ public class BasicCarController : MonoBehaviour
 
     public float forwardAccel = 8f, reverseAccel = 4f, maxSpeed = 50f, turnStrength = 180, gravityForce = 10f, dragOnGround = 3f;
     private float speedInput, turnInput;
+    public float yOffset = .45f;
     
     private bool grounded;
     
     public LayerMask ground;
-    public float groundRayLength = 0.5f;
+    public float groundRayLength = .5f;
     public Transform groundRayPoint;
     
     public Transform leftFrontWheel, rightFrontWheel;
@@ -48,7 +49,7 @@ public class BasicCarController : MonoBehaviour
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
 
-        transform.position = myRigidBody.transform.position;
+        transform.position = myRigidBody.transform.position - new Vector3(0, yOffset, 0);
     }
 
     private void FixedUpdate() {
