@@ -5,8 +5,8 @@ using UnityEngine;
 public class CarCameraFollow : MonoBehaviour {
     [SerializeField] private Transform carTransform;
     [SerializeField] private Rigidbody carRigidbody;
-    [SerializeField] private Vector3 offsetForward = new Vector3(0f, 4f, -6f);
-    [SerializeField] private Vector3 offsetBackward = new Vector3(0f, 4f, 6f);
+    [SerializeField] private Vector3 offsetForward = new Vector3(0f, 4f, -7f);
+    [SerializeField] private Vector3 offsetBackward = new Vector3(0f, 4f, 7f);
     [SerializeField] private float smoothTime = 0.15f;
     [SerializeField] private float rotationSmoothTime = 0.15f;
     [SerializeField] private float lookAheadDistance = 10f;

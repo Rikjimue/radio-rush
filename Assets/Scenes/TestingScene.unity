@@ -275,11 +275,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carTransform: {fileID: 763686620}
   carRigidbody: {fileID: 1789650908}
-  offsetForward: {x: 0, y: 3, z: -8}
-  offsetBackward: {x: 0, y: 4, z: -5}
-  smoothTime: 0.25
+  offsetForward: {x: 0, y: 4, z: -7}
+  offsetBackward: {x: 0, y: 4, z: 7}
+  smoothTime: 0.15
   rotationSmoothTime: 0.15
-  lookAheadDistance: 1
+  lookAheadDistance: 10
 --- !u!4 &91784602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6416425098950015123, guid: f3b91a1b9d3bd0f41af30fd573263395,
@@ -371,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 1123312300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -559,7 +559,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1789650909
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
