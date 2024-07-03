@@ -39,11 +39,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: maxSpeed
-    value: 50
+    value: 80
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: turnStrength
     value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maxWheelTurn
+    value: 25
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: gravityForce
@@ -54,16 +58,12 @@ Preset:
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: yOffset
-    value: 0.45
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: ground.m_Bits
-    value: 8
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: groundRayLength
     value: 0.24
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yOffset
+    value: 0.45
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: groundRayPoint
@@ -78,15 +78,7 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: maxWheelTurn
-    value: 25
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: dustTrail.Array.size
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: maxEmission
-    value: 25
+    propertyPath: ground.m_Bits
+    value: 8
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
