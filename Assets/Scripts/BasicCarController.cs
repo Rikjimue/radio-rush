@@ -8,7 +8,9 @@ public class BasicCarController : MonoBehaviour
 {
     public Rigidbody myRigidBody;
 
-    [SerializeField] private float forwardAccel = 8f, reverseAccel = 4f, maxSpeed = 80f, turnStrength = 180, maxWheelTurn = 25f, gravityForce = 10f, dragOnGround = 3f, groundRayLength = 0.45f, yOffset = 0.45f, driftThreshold = 30f, minDriftSpeed = 15f;
+    [SerializeField]
+    private float forwardAccel = 8f, reverseAccel = 4f, maxSpeed = 80f, turnStrength = 180, maxWheelTurn = 25f, gravityForce = 10f, dragOnGround = 3f, groundRayLength = 0.45f, yOffset = 0.45f, driftThreshold = 30f, minDriftSpeed = 15f;
+    
     [SerializeField] private Transform groundRayPoint, leftFrontWheel, rightFrontWheel;
     [SerializeField] private LayerMask ground;
     [SerializeField] private GameObject _carParticleObject;
@@ -22,7 +24,7 @@ public class BasicCarController : MonoBehaviour
     {
         myRigidBody.transform.parent = null;
 
-        _particleManager = _carParticleObject.GetComponent<ParticleSystemManager>();
+        //_particleManager = _carParticleObject.GetComponent<ParticleSystemManager>();
     }
 
     // Update is called once per frame
@@ -39,11 +41,13 @@ public class BasicCarController : MonoBehaviour
         turnInput = Input.GetAxis("Horizontal");
 
         if (grounded) {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical"), 0f));
+            transform.rotation =  Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical"), 0f));
         }
- 
-        leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
-        rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
+
+        //leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, leftFrontWheel.localRotation.eulerAngles.y + 100f * Time.deltaTime, leftFrontWheel.localRotation.eulerAngles.z);
+        leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, -90 + turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
+
+        rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, -90 + turnInput * maxWheelTurn, leftFrontWheel.localRotation.eulerAngles.z);
 
         transform.position = myRigidBody.transform.position - new Vector3(0f, yOffset, 0f);
     }
@@ -55,10 +59,10 @@ public class BasicCarController : MonoBehaviour
         if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, ground)) {
             grounded = true;
 
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation, 0.1f);
         }
 
-        ControlDriftEffect();
+        //ControlDriftEffect();
 
         if (grounded) {
             myRigidBody.drag = dragOnGround;
