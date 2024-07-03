@@ -480,21 +480,19 @@ MonoBehaviour:
   myRigidBody: {fileID: 1789650908}
   forwardAccel: 8
   reverseAccel: 4
-  maxSpeed: 50
+  maxSpeed: 80
   turnStrength: 100
+  maxWheelTurn: 25
   gravityForce: 10
   dragOnGround: 3
-  yOffset: 0.46
-  ground:
-    serializedVersion: 2
-    m_Bits: 8
-  groundRayLength: 0.5
+  groundRayLength: 0.24
+  yOffset: 0.45
   groundRayPoint: {fileID: 1123312301}
   leftFrontWheel: {fileID: 900957942}
   rightFrontWheel: {fileID: 1964066315}
-  maxWheelTurn: 25
-  dustTrail: []
-  maxEmission: 25
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &1533518643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1167748281217693831, guid: 236da01a3a0ddb94399e07ecc8b36af9,
@@ -588,7 +586,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789650907}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
