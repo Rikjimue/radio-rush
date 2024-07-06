@@ -52,7 +52,8 @@ public class BasicCarController : MonoBehaviour
         transform.position = myRigidBody.transform.position - new Vector3(0f, yOffset, 0f);
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         grounded = false;
         RaycastHit hit;
 
@@ -78,7 +79,8 @@ public class BasicCarController : MonoBehaviour
         }
     }
 
-    private void ControlDriftEffect() {
+    private void ControlDriftEffect()
+    {
         if (myRigidBody.velocity.magnitude > minDriftSpeed && grounded) {
             Vector3 wheelDirection = leftFrontWheel.TransformDirection(Vector3.forward);
             Vector3 carVelocityDirection = myRigidBody.velocity.normalized;
